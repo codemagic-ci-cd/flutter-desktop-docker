@@ -1,24 +1,28 @@
 FROM ubuntu:20.04
 
 ENV PATH="/opt/flutter/bin:/opt/flutter/bin/cache/dart-sdk/bin:$PATH"
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update > /dev/null \
+RUN apt-get update \
     && apt-get --yes install --reinstall ca-certificates \
-    && DEBIAN_FRONTEND="noninteractive" apt-get --yes install --no-install-recommends \
-        git \
-        curl \
-        unzip \
+    && apt-get --yes install --no-install-recommends \
         clang \
         cmake \
+        curl \
+        git \
+        libglu1-mesa \
         ninja-build \
-    && apt-get --purge autoremove > /dev/null \
-    && apt-get autoclean > /dev/null \
+        unzip \
+        xz-utils \
+    && apt-get --purge autoremove \
+    && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone -b master https://github.com/flutter/flutter.git /opt/flutter
 
 RUN flutter upgrade \
     && flutter config --enable-linux-desktop \
+    && flutter precache --linux \
     && flutter doctor -v \
     && chown -R root:root /opt \
     && mkdir /opt/clone
