@@ -9,8 +9,12 @@ RUN apt-get update \
         clang \
         cmake \
         curl \
+        file \
         git \
         libglu1-mesa \
+        libxinerama1 \
+        libxcursor1 \
+        libxrandr2 \
         ninja-build \
         unzip \
         xz-utils \
