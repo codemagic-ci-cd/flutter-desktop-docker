@@ -11,10 +11,13 @@ RUN apt-get update \
         curl \
         file \
         git \
+        libblkid-dev \
         libglu1-mesa \
+        libgtk-3-dev \
         libxinerama1 \
         libxcursor1 \
         libxrandr2 \
+        pkg-config \
         ninja-build \
         unzip \
         xz-utils \
