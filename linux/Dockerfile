@@ -14,6 +14,7 @@ RUN apt-get update \
         libblkid-dev \
         libglu1-mesa \
         libgtk-3-dev \
+        liblzma-dev \
         libxinerama1 \
         libxcursor1 \
         libxrandr2 \
