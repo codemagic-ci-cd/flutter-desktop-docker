@@ -26,7 +26,7 @@ RUN apt-get update \
     && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/flutter/flutter.git -b master --depth 1 /opt/flutter
+RUN git clone https://github.com/flutter/flutter.git -b master /opt/flutter
 
 RUN flutter upgrade \
     && flutter config --enable-linux-desktop \
